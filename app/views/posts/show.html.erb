@@ -1,0 +1,38 @@
+<div class="container my-5">
+  <%= turbo_frame_tag "post_#{@post.id}" do %>
+  <p id="notice"><%= notice %></p>
+    <p>
+      <strong>Title:</strong>
+      <%= @post.title %>
+    </p>
+
+    <p>
+      <strong>Body:</strong>
+      <%= @post.body %>
+    </p>
+
+    <p>
+      <strong>User:</strong>
+      <%= @post.user.email %>
+    </p>
+    <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-primary' %> |
+    <%= link_to 'Back', posts_path, class: 'btn btn-dark'%>
+    <hr>
+  <%= turbo_stream_from "comments" %>
+
+  <% if @post.comments.empty? %>
+    <p>No comments yet!</p>
+  <% else %>
+    <h3>Comments</h3>
+    <%= turbo_frame_tag "comments" do %>
+      <%= render @comments %>
+    <% end %>
+  <% end %>
+
+  <hr>
+  <h3>Leave a comment</h3>
+  <%= turbo_frame_tag @comment do %>
+    <%= render 'comments/form', post: @post, comment: @comment %>
+  <% end %>
+  <% end %>
+</div>

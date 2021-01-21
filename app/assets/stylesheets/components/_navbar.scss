@@ -10,3 +10,30 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.unread {
+  border-left: 3px solid red;
+}
+
+.dropdown-toggle {
+  cursor: pointer;
+}
+
+.dropdown-toggle:after {
+  content: none;
+}
+
+.red-circle {
+  width: 10px;
+  display: inline-block;
+  height: 10px;
+  background-color: red;
+  border-radius: 50%;
+  border: 1px solid red;
+  position: absolute;
+  right: 1rem;
+}
+
+p {
+  margin-bottom: 0;
+}

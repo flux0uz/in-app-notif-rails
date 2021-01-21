@@ -1,0 +1,14 @@
+<div class="container my-5">
+  <p id="notice"><%= notice %></p>
+
+  <h1>Posts</h1>
+
+  <%= turbo_stream_from "posts" %>
+    <%= turbo_frame_tag "posts" do %>
+      <%= render @posts %>
+    <% end %>
+
+  <br>
+
+  <%= link_to 'New Post', new_post_path, class: 'btn btn-primary' %>
+</div>
